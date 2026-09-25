@@ -7,22 +7,47 @@ public class PropertyCell extends Cell {
 	private int rent;
 	private int sellPrice;
 
+	/**
+	 * Returns the color group.
+	 *
+	 * @return the resulting string
+	 */
 	public String getColorGroup() {
 		return colorGroup;
 	}
 
+	/**
+	 * Returns the house price.
+	 *
+	 * @return the resulting numeric value
+	 */
 	public int getHousePrice() {
 		return housePrice;
 	}
 
+	/**
+	 * Returns the num houses.
+	 *
+	 * @return the resulting numeric value
+	 */
 	public int getNumHouses() {
 		return numHouses;
 	}
     
+    /**
+     * Returns the price.
+     *
+     * @return the resulting numeric value
+     */
     public int getPrice() {
 		return sellPrice;
 	}
 
+	/**
+	 * Returns the rent.
+	 *
+	 * @return the resulting numeric value
+	 */
 	public int getRent() {
 		int rentToCharge = rent;
 		String [] monopolies = theOwner.getMonopolies();
@@ -30,6 +55,13 @@ public class PropertyCell extends Cell {
 		return rentToCharge;
 	}
 
+	/**
+	 * Calculates the monopolies rent.
+	 *
+	 * @param rentToCharge rent to charge
+	 * @param monopolies monopolies
+	 * @return the resulting numeric value
+	 */
 	private int calculateMonopoliesRent(int rentToCharge, String[] monopolies) {
 		for(int i = 0; i < monopolies.length; i++) {
 			if(monopolies[i].equals(colorGroup)) {
@@ -42,6 +74,9 @@ public class PropertyCell extends Cell {
 		return rentToCharge;
 	}
 
+	/**
+	 * Play actions.
+	 */
 	public void playAction() {
 		Player currentPlayer = null;
 		if(!isAvailable()) {
@@ -52,22 +87,47 @@ public class PropertyCell extends Cell {
 		}
 	}
 
+	/**
+	 * Sets the color group.
+	 *
+	 * @param colorGroup color group
+	 */
 	public void setColorGroup(String colorGroup) {
 		this.colorGroup = colorGroup;
 	}
 
+	/**
+	 * Sets the house price.
+	 *
+	 * @param housePrice price
+	 */
 	public void setHousePrice(int housePrice) {
 		this.housePrice = housePrice;
 	}
 
+	/**
+	 * Sets the num houses.
+	 *
+	 * @param numHouses num houses
+	 */
 	public void setNumHouses(int numHouses) {
 		this.numHouses = numHouses;
 	}
 
+	/**
+	 * Sets the price.
+	 *
+	 * @param sellPrice price
+	 */
 	public void setPrice(int sellPrice) {
 		this.sellPrice = sellPrice;
 	}
 
+	/**
+	 * Sets the rent.
+	 *
+	 * @param rent rent
+	 */
 	public void setRent(int rent) {
 		this.rent = rent;
 	}

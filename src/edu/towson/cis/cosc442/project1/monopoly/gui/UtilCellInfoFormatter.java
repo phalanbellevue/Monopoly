@@ -6,6 +6,12 @@ import edu.towson.cis.cosc442.project1.monopoly.UtilityCell;
 
 public class UtilCellInfoFormatter implements CellInfoFormatter {
 
+	/**
+	 * Formats the util cell info formatter.
+	 *
+	 * @param cell cell
+	 * @return the resulting string
+	 */
 	public String format(Cell cell) {
         UtilityCell c = (UtilityCell)cell;
         StringBuffer buf = new StringBuffer();

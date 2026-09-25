@@ -5,6 +5,12 @@ import edu.towson.cis.cosc442.project1.monopoly.Player;
 import edu.towson.cis.cosc442.project1.monopoly.RailRoadCell;
 
 public class RRCellInfoFormatter implements CellInfoFormatter {
+    /**
+     * Formats the rr cell info formatter.
+     *
+     * @param cell cell
+     * @return the resulting string
+     */
     public String format(Cell cell) {
         RailRoadCell c = (RailRoadCell)cell;
         StringBuffer buf = new StringBuffer();

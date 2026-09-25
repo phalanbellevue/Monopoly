@@ -2,6 +2,9 @@ package edu.towson.cis.cosc442.project1.monopoly;
 
 
 public class GameBoardCCMovePlayer extends GameBoard {
+    /**
+     * Constructs a new game board cc move player instance.
+     */
     public GameBoardCCMovePlayer() {
 		super();
 		PropertyCell blue1 = new PropertyCell();

@@ -2,6 +2,9 @@ package edu.towson.cis.cosc442.project1.monopoly;
 
 
 public class SimpleGameBoard extends GameBoard {
+	/**
+	 * Constructs a new simple game board instance.
+	 */
 	public SimpleGameBoard() {
 		super();
 		PropertyCell blue1 = new PropertyCell();

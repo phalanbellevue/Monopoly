@@ -6,6 +6,12 @@ import edu.towson.cis.cosc442.project1.monopoly.*;
 
 public class Main {
 
+	/**
+	 * Input number of players.
+	 *
+	 * @param window window
+	 * @return the resulting numeric value
+	 */
 	private static int inputNumberOfPlayers(MainWindow window) {
 		int numPlayers = 0;
 		while(numPlayers <= 0 || numPlayers > GameMaster.MAX_PLAYER) {
@@ -26,6 +32,7 @@ public class Main {
 		}
 		return numPlayers;
 	}
+
 
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {

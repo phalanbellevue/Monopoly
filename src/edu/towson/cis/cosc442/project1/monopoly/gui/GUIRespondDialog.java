@@ -18,6 +18,9 @@ public class GUIRespondDialog extends JDialog implements RespondDialog {
 	private boolean response;
     JTextArea txtMessage = new JTextArea();
     
+    /**
+     * Constructs a new gui respond dialog instance.
+     */
     public GUIRespondDialog() {
         JButton btnYes = new JButton("Yes");
         JButton btnNo = new JButton("No");
@@ -34,6 +37,11 @@ public class GUIRespondDialog extends JDialog implements RespondDialog {
         contentPane.add(pnlButtons, BorderLayout.SOUTH);
         
         btnYes.addActionListener(new ActionListener(){
+            /**
+             * Action performeds.
+             *
+             * @param e the e parameter
+             */
             @SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
                 response = true;
@@ -42,6 +50,11 @@ public class GUIRespondDialog extends JDialog implements RespondDialog {
         });
 
         btnNo.addActionListener(new ActionListener(){
+            /**
+             * Action performeds.
+             *
+             * @param e the e parameter
+             */
             @SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
                 response = false;
@@ -53,10 +66,20 @@ public class GUIRespondDialog extends JDialog implements RespondDialog {
         pack();
     }
 
+    /**
+     * Returns the response.
+     *
+     * @return true if successful, false otherwise
+     */
     public boolean getResponse() {
         return response;
     }
     
+    /**
+     * Sets the deal.
+     *
+     * @param deal deal
+     */
     public void setDeal(TradeDeal deal) {
         txtMessage.setText(deal.makeMessage());
     }

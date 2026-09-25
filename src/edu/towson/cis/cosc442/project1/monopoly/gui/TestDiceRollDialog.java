@@ -14,14 +14,18 @@ import javax.swing.JTextField;
 
 
 public class TestDiceRollDialog extends JDialog {
-    /**
-	 * 
-	 */
+
+
 	private static final long serialVersionUID = 1L;
 	private JButton btnOK, btnCancel;
     private JTextField txtDiceRoll;
     private int[] diceRoll;
     
+    /**
+     * Constructs a new test dice roll dialog instance with the specified parameters.
+     *
+     * @param parent parent element
+     */
     public TestDiceRollDialog(Frame parent) {
         super(parent);
         
@@ -40,6 +44,11 @@ public class TestDiceRollDialog extends JDialog {
         contentPane.add(btnCancel);
         
         btnCancel.addActionListener(new ActionListener(){
+            /**
+             * Action performeds.
+             *
+             * @param e the e parameter
+             */
             @SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
                 TestDiceRollDialog.this.hide();
@@ -50,6 +59,11 @@ public class TestDiceRollDialog extends JDialog {
         });
         
         btnOK.addActionListener(new ActionListener() {
+            /**
+             * Action performeds.
+             *
+             * @param e the e parameter
+             */
             @SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
                 int amount = 0;
@@ -78,6 +92,11 @@ public class TestDiceRollDialog extends JDialog {
         this.pack();
     }
 
+    /**
+     * Returns the dice roll.
+     *
+     * @return array of ints
+     */
     public int[] getDiceRoll() {
         return diceRoll;
     }

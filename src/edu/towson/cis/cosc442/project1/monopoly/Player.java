@@ -17,6 +17,9 @@ public class Player {
 	private ArrayList<Cell> railroads = new ArrayList<Cell>();
 	private ArrayList<Cell> utilities = new ArrayList<Cell>();
 	
+	/**
+	 * Constructs a new player instance.
+	 */
 	public Player() {
 		GameBoard gb = GameMaster.instance().getGameBoard();
 		inJail = false;
@@ -25,6 +28,12 @@ public class Player {
 		}
 	}
 
+    /**
+     * Buy propertys.
+     *
+     * @param property property
+     * @param amount amount
+     */
     public void buyProperty(Cell property, int amount) {
         property.setTheOwner(this);
         if(property instanceof PropertyCell) {
@@ -49,10 +58,21 @@ public class Player {
         setMoney(getMoney() - amount);
     }
 	
+	/**
+	 * Checks whether the buy house.
+	 *
+	 * @return true if the condition holds, false otherwise
+	 */
 	public boolean canBuyHouse() {
 		return (getMonopolies().length != 0);
 	}
 
+	/**
+	 * Check propertys.
+	 *
+	 * @param property property
+	 * @return true if successful, false otherwise
+	 */
 	public boolean checkProperty(String property) {
 		for(int i=0;i<properties.size();i++) {
 			Cell cell = (Cell)properties.get(i);
@@ -64,6 +84,11 @@ public class Player {
 		
 	}
 	
+	/**
+	 * Exchange propertys.
+	 *
+	 * @param player player
+	 */
 	public void exchangeProperty(Player player) {
 		for(int i = 0; i < getPropertyNumber(); i++ ) {
 			PropertyCell cell = getProperty(i);
@@ -82,6 +107,11 @@ public class Player {
 		properties.clear();
 	}
     
+    /**
+     * Returns the all properties.
+     *
+     * @return array of cells
+     */
     public Cell[] getAllProperties() {
         ArrayList<Cell> list = new ArrayList<Cell>();
         list.addAll(properties);
@@ -90,10 +120,20 @@ public class Player {
         return (Cell[])list.toArray(new Cell[list.size()]);
     }
 
+	/**
+	 * Returns the money.
+	 *
+	 * @return the resulting numeric value
+	 */
 	public int getMoney() {
 		return this.money;
 	}
 	
+	/**
+	 * Returns the monopolies.
+	 *
+	 * @return array of strings
+	 */
 	public String[] getMonopolies() {
 		ArrayList<String> monopolies = new ArrayList<String>();
 		Enumeration<String> colors = colorGroups.keys();
@@ -110,10 +150,18 @@ public class Player {
 		return (String[])monopolies.toArray(new String[monopolies.size()]);
 	}
 
+	/**
+	 * Returns the name.
+	 *
+	 * @return the resulting string
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Returns the out of jail.
+	 */
 	public void getOutOfJail() {
 		money -= JailCell.BAIL;
 		if(isBankrupt()) {
@@ -124,18 +172,40 @@ public class Player {
 		GameMaster.instance().updateGUI();
 	}
 
+	/**
+	 * Returns the position.
+	 *
+	 * @return the resulting cell
+	 */
 	public Cell getPosition() {
 		return this.position;
 	}
 	
+	/**
+	 * Returns the property.
+	 *
+	 * @param index zero-based index
+	 * @return the resulting property cell
+	 */
 	public PropertyCell getProperty(int index) {
 		return (PropertyCell)properties.get(index);
 	}
 	
+	/**
+	 * Returns the property number.
+	 *
+	 * @return the resulting numeric value
+	 */
 	public int getPropertyNumber() {
 		return properties.size();
 	}
 
+	/**
+	 * Returns the property number for color.
+	 *
+	 * @param name name
+	 * @return the resulting numeric value
+	 */
 	private int getPropertyNumberForColor(String name) {
 		Integer number = (Integer)colorGroups.get(name);
 		if(number != null) {
@@ -144,22 +214,48 @@ public class Player {
 		return 0;
 	}
 
+	/**
+	 * Checks whether the bankrupt.
+	 *
+	 * @return true if the condition holds, false otherwise
+	 */
 	public boolean isBankrupt() {
 		return money <= 0;
 	}
 
+	/**
+	 * Checks whether the in jail.
+	 *
+	 * @return true if the condition holds, false otherwise
+	 */
 	public boolean isInJail() {
 		return inJail;
 	}
 
+	/**
+	 * Number of rrs.
+	 *
+	 * @return the resulting numeric value
+	 */
 	public int numberOfRR() {
 		return getPropertyNumberForColor(RailRoadCell.COLOR_GROUP);
 	}
 
+	/**
+	 * Number of utils.
+	 *
+	 * @return the resulting numeric value
+	 */
 	public int numberOfUtil() {
 		return getPropertyNumberForColor(UtilityCell.COLOR_GROUP);
 	}
 	
+	/**
+	 * Pay rent tos.
+	 *
+	 * @param owner owner
+	 * @param rentValue value
+	 */
 	public void payRentTo(Player owner, int rentValue) {
 		if(money < rentValue) {
 			owner.money += money;
@@ -175,6 +271,9 @@ public class Player {
 		}
 	}
 	
+	/**
+	 * Purchases.
+	 */
 	public void purchase() {
 		if(getPosition().isAvailable()) {
 			Cell c = getPosition();
@@ -194,6 +293,12 @@ public class Player {
 		}
 	}
 	
+	/**
+	 * Purchase houses.
+	 *
+	 * @param selectedMonopoly selected monopoly
+	 * @param houses houses
+	 */
 	public void purchaseHouse(String selectedMonopoly, int houses) {
 		GameBoard gb = GameMaster.instance().getGameBoard();
 		PropertyCell[] cells = gb.getPropertiesInMonopoly(selectedMonopoly);
@@ -209,18 +314,39 @@ public class Player {
 		}
 	}
 	
+	/**
+	 * Purchase propertys.
+	 *
+	 * @param cell cell
+	 */
 	private void purchaseProperty(PropertyCell cell) {
         buyProperty(cell, cell.getPrice());
 	}
 
+	/**
+	 * Purchase rail roads.
+	 *
+	 * @param cell cell
+	 */
 	private void purchaseRailRoad(RailRoadCell cell) {
 	    buyProperty(cell, cell.getPrice());
 	}
 
+	/**
+	 * Purchase utilitys.
+	 *
+	 * @param cell cell
+	 */
 	private void purchaseUtility(UtilityCell cell) {
 	    buyProperty(cell, cell.getPrice());
 	}
 
+    /**
+     * Sell propertys.
+     *
+     * @param property property
+     * @param amount amount
+     */
     public void sellProperty(Cell property, int amount) {
         property.setTheOwner(null);
         if(property instanceof PropertyCell) {
@@ -235,26 +361,54 @@ public class Player {
         setMoney(getMoney() + amount);
     }
 
+	/**
+	 * Sets the in jail.
+	 *
+	 * @param inJail flag indicating whether in jail
+	 */
 	public void setInJail(boolean inJail) {
 		this.inJail = inJail;
 	}
 
+	/**
+	 * Sets the money.
+	 *
+	 * @param money money
+	 */
 	public void setMoney(int money) {
 		this.money = money;
 	}
 
+	/**
+	 * Sets the name.
+	 *
+	 * @param name name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Sets the position.
+	 *
+	 * @param newPosition new position
+	 */
 	public void setPosition(Cell newPosition) {
 		this.position = newPosition;
 	}
 
+    /**
+     * To strings.
+     *
+     * @return the resulting string
+     */
     public String toString() {
         return name;
     }
     
+    /**
+     * Resets the property.
+     */
     public void resetProperty() {
     	properties = new ArrayList<PropertyCell>();
     	railroads = new ArrayList<Cell>();

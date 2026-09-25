@@ -24,6 +24,11 @@ public class BuyHouseDialog extends JDialog {
 
 	private Player player;
 
+	/**
+	 * Constructs a new buy house dialog instance with the specified parameters.
+	 *
+	 * @param player player
+	 */
 	public BuyHouseDialog(Player player) {
 		this.player = player;
 		Container c = this.getContentPane();
@@ -38,9 +43,19 @@ public class BuyHouseDialog extends JDialog {
 		this.pack();
 	}
 
+	/**
+	 * Builds the cancel button.
+	 *
+	 * @return the resulting j button
+	 */
 	private JButton buildCancelButton() {
 		JButton btn = new JButton("Cancel");
 		btn.addActionListener(new ActionListener(){
+			/**
+			 * Action performeds.
+			 *
+			 * @param e the e parameter
+			 */
 			public void actionPerformed(ActionEvent e) {
 				cancelClicked();
 			}
@@ -48,11 +63,21 @@ public class BuyHouseDialog extends JDialog {
 		return btn;
 	}
 
+	/**
+	 * Builds the monopoly combo box.
+	 *
+	 * @return the resulting j combo box
+	 */
 	private JComboBox<?> buildMonopolyComboBox() {
 		cboMonopoly = new JComboBox<Object>(player.getMonopolies());
 		return cboMonopoly;
 	}
 	
+	/**
+	 * Builds the number combo box.
+	 *
+	 * @return the resulting j combo box
+	 */
 	private JComboBox<?> buildNumberComboBox() {
 		cboNumber = new JComboBox<Object>(new Integer[]{
 				new Integer(1),
@@ -63,9 +88,19 @@ public class BuyHouseDialog extends JDialog {
 		return cboNumber;
 	}
 
+	/**
+	 * Builds the ok button.
+	 *
+	 * @return the resulting j button
+	 */
 	private JButton buildOKButton() {
 		JButton btn = new JButton("OK");
 		btn.addActionListener(new ActionListener(){
+			/**
+			 * Action performeds.
+			 *
+			 * @param e the e parameter
+			 */
 			public void actionPerformed(ActionEvent e) {
 				okClicked();
 			}
@@ -73,10 +108,16 @@ public class BuyHouseDialog extends JDialog {
 		return btn;
 	}
 	
+	/**
+	 * Cancel clickeds.
+	 */
 	private void cancelClicked() {
 		this.dispose();
 	}
 	
+	/**
+	 * Ok clickeds.
+	 */
 	private void okClicked() {
 		String monopoly = (String)cboMonopoly.getSelectedItem();
 		int number = cboNumber.getSelectedIndex() + 1;

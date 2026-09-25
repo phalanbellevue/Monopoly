@@ -15,6 +15,11 @@ public class GUICell extends JPanel {
 	private JLabel lblInfo;
 	private JLabel[] lblPlayers = new JLabel[GameMaster.MAX_PLAYER];
 	
+    /**
+     * Constructs a new gui cell instance with the specified parameters.
+     *
+     * @param cell cell
+     */
     public GUICell(Cell cell) {
         this.cell = cell;
         setLayout(new OverlayLayout(this));
@@ -29,6 +34,9 @@ public class GUICell extends JPanel {
         this.doLayout();
 	}
 	
+	/**
+	 * Adds the cell info.
+	 */
 	private void addCellInfo() {
         lblInfo = new JLabel();
 		displayInfo();
@@ -38,12 +46,22 @@ public class GUICell extends JPanel {
         add(pnlInfo);
     }
 	
+	/**
+	 * Adds the player.
+	 *
+	 * @param index zero-based index
+	 */
 	public void addPlayer(int index) {
 		Player player = GameMaster.instance().getPlayer(index);
 		lblPlayers[index].setText(player.getName().substring(0, 1));
 		lblPlayers[index].setOpaque(true);
 	}
 
+    /**
+     * Creates a new the player labels.
+     *
+     * @param pnlPlayer pnl player
+     */
     private void createPlayerLabels(JPanel pnlPlayer) {
 		for (int i = 0; i < GameMaster.MAX_PLAYER; i++) {
 			lblPlayers[i] = new JLabel();
@@ -52,16 +70,29 @@ public class GUICell extends JPanel {
 		}
 	}
 
+	/**
+	 * Display infos.
+	 */
 	public void displayInfo() {
 		lblInfo.setText(InfoFormatter.cellInfo(cell));
         this.invalidate();
 		this.repaint();
 	}
 
+	/**
+	 * Returns the cell.
+	 *
+	 * @return the resulting cell
+	 */
 	public Cell getCell() {
 		return cell;
 	}
 	
+	/**
+	 * Removes the player.
+	 *
+	 * @param index zero-based index
+	 */
 	public void removePlayer(int index) {
 		lblPlayers[index].setText("");
 		lblPlayers[index].setOpaque(false);

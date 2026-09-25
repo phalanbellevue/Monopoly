@@ -9,6 +9,12 @@ import edu.towson.cis.cosc442.project1.monopoly.GameBoard;
 
 public class GameBoardUtil {
     
+	/**
+	 * Calculates the dimension.
+	 *
+	 * @param i the i parameter
+	 * @return the resulting dimension
+	 */
 	public static Dimension calculateDimension(int i) {
 		i = i - 4;
 		int shortSide = i / 4;
@@ -16,6 +22,12 @@ public class GameBoardUtil {
 		return new Dimension(longSide, shortSide);
 	}
 	
+	/**
+	 * Returns the east cells.
+	 *
+	 * @param board board
+	 * @return list containing cells
+	 */
 	public static List<Cell> getEastCells(GameBoard board) {
 		Dimension d = calculateDimension(board.getCellNumber());
 		int shortSide = d.height;
@@ -26,6 +38,12 @@ public class GameBoardUtil {
 		return cells;
 	}
 	
+	/**
+	 * Returns the north cells.
+	 *
+	 * @param board board
+	 * @return list containing cells
+	 */
 	public static List<Cell> getNorthCells(GameBoard board) {
 		Dimension d = calculateDimension(board.getCellNumber());
 		int longSide = d.width;
@@ -37,6 +55,12 @@ public class GameBoardUtil {
 		return cells;
 	}
 	
+	/**
+	 * Returns the south cells.
+	 *
+	 * @param board board
+	 * @return list containing cells
+	 */
 	public static List<Cell> getSouthCells(GameBoard board) {
 		Dimension d = calculateDimension(board.getCellNumber());
 		int longSide = d.width;
@@ -47,6 +71,12 @@ public class GameBoardUtil {
 		return cells;
 	}
 	
+	/**
+	 * Returns the west cells.
+	 *
+	 * @param board board
+	 * @return list containing cells
+	 */
 	public static List<Cell> getWestCells(GameBoard board) {
 		Dimension d = calculateDimension(board.getCellNumber());
 		int longSide = d.width;

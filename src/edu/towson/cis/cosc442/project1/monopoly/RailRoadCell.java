@@ -5,22 +5,45 @@ public class RailRoadCell extends Cell {
 	static public String COLOR_GROUP = "RAILROAD";
 	static private int price;
 
+	/**
+	 * Sets the base rent.
+	 *
+	 * @param baseRent base rent
+	 */
 	public static void setBaseRent(int baseRent) {
 		RailRoadCell.baseRent = baseRent;
 	}
 
+	/**
+	 * Sets the price.
+	 *
+	 * @param price price
+	 */
 	public static void setPrice(int price) {
 		RailRoadCell.price = price;
 	}
 	
+	/**
+	 * Returns the price.
+	 *
+	 * @return the resulting numeric value
+	 */
 	public int getPrice() {
 		return RailRoadCell.price;
 	}
 
+	/**
+	 * Returns the rent.
+	 *
+	 * @return the resulting numeric value
+	 */
 	public int getRent() {
 		return RailRoadCell.baseRent * (int)Math.pow(2, theOwner.numberOfRR() - 1);
 	}
 	
+	/**
+	 * Play actions.
+	 */
 	public void playAction() {
 		Player currentPlayer = null;
 		if(!isAvailable()) {

@@ -2,6 +2,9 @@ package edu.towson.cis.cosc442.project1.monopoly;
 
 
 public class GameBoardCCLoseMoney extends GameBoard {
+    /**
+     * Constructs a new game board cc lose money instance.
+     */
     public GameBoardCCLoseMoney() {
 		super();
 		PropertyCell blue1 = new PropertyCell();

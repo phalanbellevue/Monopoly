@@ -6,6 +6,9 @@ public class LoseMoneyCardTest extends TestCase {
     GameMaster gameMaster;
     Card loseMoneyCard;
 
+    /**
+     * Set up.
+     */
     protected void setUp() {
 		gameMaster = GameMaster.instance();
 		gameMaster.setGameBoard(new GameBoardCCLoseMoney());
@@ -16,6 +19,9 @@ public class LoseMoneyCardTest extends TestCase {
 		gameMaster.getGameBoard().addCard(loseMoneyCard);
     }
     
+    /**
+     * Test lose money card actions.
+     */
     public void testLoseMoneyCardAction() {
         int origMoney = gameMaster.getCurrentPlayer().getMoney();
 		Card card = gameMaster.drawCCCard();
@@ -24,6 +30,9 @@ public class LoseMoneyCardTest extends TestCase {
 		assertEquals(origMoney - 20, gameMaster.getCurrentPlayer().getMoney());
     }
     
+    /**
+     * Test lose money card uis.
+     */
     public void testLoseMoneyCardUI() {
         gameMaster.movePlayer(0, 1);
         assertTrue(gameMaster.getGUI().isDrawCardButtonEnabled());

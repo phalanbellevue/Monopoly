@@ -6,6 +6,12 @@ public class JailCellInfoFormatter implements CellInfoFormatter {
 
     public static final String JAIL_CELL_LABEL = "<html><b>Jail</b></html>";
 
+    /**
+     * Formats the jail cell info formatter.
+     *
+     * @param cell cell
+     * @return the resulting string
+     */
     public String format(Cell cell) {
 		return JAIL_CELL_LABEL;
 	}

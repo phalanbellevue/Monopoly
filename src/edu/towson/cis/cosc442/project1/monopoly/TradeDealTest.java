@@ -4,6 +4,9 @@ import junit.framework.TestCase;
 
 public class TradeDealTest extends TestCase {
     
+    /**
+     * Set up.
+     */
     public void setUp() {
         GameMaster gameMaster = GameMaster.instance();
         gameMaster.reset();
@@ -12,6 +15,9 @@ public class TradeDealTest extends TestCase {
         gameMaster.getPlayer(1).setName("Seller");
     }
 
+    /**
+     * Test make messages.
+     */
     public void testMakeMessage() {
         TradeDeal deal = new TradeDeal();
         deal.setAmount(200);

@@ -6,6 +6,12 @@ public class ChanceCellInfoFormatter implements CellInfoFormatter {
     
     public static final String CHANCE_CELL_LABEL = "<html><font color='teal'><b>Chance</b></font></html>";
     
+    /**
+     * Formats the chance cell info formatter.
+     *
+     * @param cell cell
+     * @return the resulting string
+     */
     public String format(Cell cell) {
         return CHANCE_CELL_LABEL;
     }

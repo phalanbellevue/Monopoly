@@ -6,6 +6,12 @@ public class GoCellInfoFormatter implements CellInfoFormatter {
     
     public static final String GO_CELL_LABEL = "<html><b>Go</b></html>";
     
+    /**
+     * Formats the go cell info formatter.
+     *
+     * @param cell cell
+     * @return the resulting string
+     */
     public String format(Cell cell) {
         return GO_CELL_LABEL;
     }

@@ -6,11 +6,20 @@ public class MovePlayerCard extends Card {
     private String destination;
     private int type;
 
+    /**
+     * Constructs a new move player card instance with the specified parameters.
+     *
+     * @param destination destination
+     * @param cardType type
+     */
     public MovePlayerCard(String destination, int cardType) {
         this.destination = destination;
         this.type = cardType;
     }
 
+    /**
+     * Applies the action.
+     */
     public void applyAction() {
         Player currentPlayer = GameMaster.instance().getCurrentPlayer();
         Cell currentPosition = currentPlayer.getPosition();
@@ -28,10 +37,20 @@ public class MovePlayerCard extends Card {
         GameMaster.instance().movePlayer(currentPlayer, diceValue);
     }
 
+    /**
+     * Returns the card type.
+     *
+     * @return the resulting numeric value
+     */
     public int getCardType() {
         return type;
     }
 
+    /**
+     * Returns the label.
+     *
+     * @return the resulting string
+     */
     public String getLabel() {
         return "Go to " + destination;
     }

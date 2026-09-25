@@ -1,6 +1,9 @@
 package edu.towson.cis.cosc442.project1.monopoly;
 
 public class GameBoardFull extends GameBoard {
+    /**
+     * Constructs a new game board full instance.
+     */
     public GameBoardFull() {
         super();
         PropertyCell dp1 = new PropertyCell();

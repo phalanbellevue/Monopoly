@@ -36,6 +36,11 @@ public class PlayerPanel extends JPanel {
     
     private JTextArea txtProperty;
 
+    /**
+     * Constructs a new player panel instance with the specified parameters.
+     *
+     * @param player player
+     */
     public PlayerPanel(Player player) {
         JPanel pnlAction = new JPanel();
         JPanel pnlInfo = new JPanel();
@@ -96,36 +101,66 @@ public class PlayerPanel extends JPanel {
         setBorder(new BevelBorder(BevelBorder.RAISED));
 
         btnRollDice.addActionListener(new ActionListener() {
+            /**
+             * Action performeds.
+             *
+             * @param e the e parameter
+             */
             public void actionPerformed(ActionEvent e) {
                 GameMaster.instance().btnRollDiceClicked();
             }
         });
 
         btnEndTurn.addActionListener(new ActionListener() {
+            /**
+             * Action performeds.
+             *
+             * @param e the e parameter
+             */
             public void actionPerformed(ActionEvent e) {
                 GameMaster.instance().btnEndTurnClicked();
             }
         });
 
         btnPurchaseProperty.addActionListener(new ActionListener() {
+            /**
+             * Action performeds.
+             *
+             * @param e the e parameter
+             */
             public void actionPerformed(ActionEvent e) {
                 GameMaster.instance().btnPurchasePropertyClicked();
             }
         });
 
         btnBuyHouse.addActionListener(new ActionListener() {
+            /**
+             * Action performeds.
+             *
+             * @param e the e parameter
+             */
             public void actionPerformed(ActionEvent e) {
                 GameMaster.instance().btnBuyHouseClicked();
             }
         });
 
         btnGetOutOfJail.addActionListener(new ActionListener() {
+            /**
+             * Action performeds.
+             *
+             * @param e the e parameter
+             */
             public void actionPerformed(ActionEvent e) {
                 GameMaster.instance().btnGetOutOfJailClicked();
             }
         });
 
         btnDrawCard.addActionListener(new ActionListener() {
+            /**
+             * Action performeds.
+             *
+             * @param e the e parameter
+             */
             public void actionPerformed(ActionEvent e) {
                 Card card = GameMaster.instance().btnDrawCardClicked();
                 JOptionPane
@@ -135,12 +170,20 @@ public class PlayerPanel extends JPanel {
         });
 
         btnTrade.addActionListener(new ActionListener() {
+            /**
+             * Action performeds.
+             *
+             * @param e the e parameter
+             */
             public void actionPerformed(ActionEvent e) {
                 GameMaster.instance().btnTradeClicked();
             }
         });
     }
 
+    /**
+     * Display infos.
+     */
     public void displayInfo() {
         lblName.setText(player.getName());
         lblMoney.setText("$ " + player.getMoney());
@@ -152,58 +195,128 @@ public class PlayerPanel extends JPanel {
         txtProperty.setText(buf.toString());
     }
     
+    /**
+     * Checks whether the buy house button enabled.
+     *
+     * @return true if the condition holds, false otherwise
+     */
     public boolean isBuyHouseButtonEnabled() {
         return btnBuyHouse.isEnabled();
     }
 
+    /**
+     * Checks whether the draw card button enabled.
+     *
+     * @return true if the condition holds, false otherwise
+     */
     public boolean isDrawCardButtonEnabled() {
         return btnDrawCard.isEnabled();
     }
 
+    /**
+     * Checks whether the end turn button enabled.
+     *
+     * @return true if the condition holds, false otherwise
+     */
     public boolean isEndTurnButtonEnabled() {
         return btnEndTurn.isEnabled();
     }
     
+    /**
+     * Checks whether the get out of jail button enabled.
+     *
+     * @return true if the condition holds, false otherwise
+     */
     public boolean isGetOutOfJailButtonEnabled() {
         return btnGetOutOfJail.isEnabled();
     }
     
+    /**
+     * Checks whether the purchase property button enabled.
+     *
+     * @return true if the condition holds, false otherwise
+     */
     public boolean isPurchasePropertyButtonEnabled() {
         return btnPurchaseProperty.isEnabled();
     }
     
+    /**
+     * Checks whether the roll dice button enabled.
+     *
+     * @return true if the condition holds, false otherwise
+     */
     public boolean isRollDiceButtonEnabled() {
         return btnRollDice.isEnabled();
     }
 
+    /**
+     * Checks whether the trade button enabled.
+     *
+     * @return true if the condition holds, false otherwise
+     */
     public boolean isTradeButtonEnabled() {
         return btnTrade.isEnabled();
     }
 
+    /**
+     * Sets the buy house enabled.
+     *
+     * @param b flag indicating whether b
+     */
     public void setBuyHouseEnabled(boolean b) {
         btnBuyHouse.setEnabled(b);
     }
 
+    /**
+     * Sets the draw card enabled.
+     *
+     * @param b flag indicating whether b
+     */
     public void setDrawCardEnabled(boolean b) {
         btnDrawCard.setEnabled(b);
     }
 
+    /**
+     * Sets the end turn enabled.
+     *
+     * @param enabled flag indicating whether the feature is enabled
+     */
     public void setEndTurnEnabled(boolean enabled) {
         btnEndTurn.setEnabled(enabled);
     }
 
+    /**
+     * Sets the get out of jail enabled.
+     *
+     * @param b flag indicating whether b
+     */
     public void setGetOutOfJailEnabled(boolean b) {
         btnGetOutOfJail.setEnabled(b);
     }
 
+    /**
+     * Sets the purchase property enabled.
+     *
+     * @param enabled flag indicating whether the feature is enabled
+     */
     public void setPurchasePropertyEnabled(boolean enabled) {
         btnPurchaseProperty.setEnabled(enabled);
     }
 
+    /**
+     * Sets the roll dice enabled.
+     *
+     * @param enabled flag indicating whether the feature is enabled
+     */
     public void setRollDiceEnabled(boolean enabled) {
         btnRollDice.setEnabled(enabled);
     }
 
+    /**
+     * Sets the trade enabled.
+     *
+     * @param b flag indicating whether b
+     */
     public void setTradeEnabled(boolean b) {
         btnTrade.setEnabled(b);
     }

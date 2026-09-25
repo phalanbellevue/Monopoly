@@ -14,11 +14,14 @@ import edu.towson.cis.cosc442.project1.monopoly.GameMaster;
 
 public class UtilDiceRoll extends JDialog {
 	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Show dialogs.
+	 *
+	 * @return the resulting numeric value
+	 */
 	@SuppressWarnings("deprecation")
 	public static int showDialog() {
 		UtilDiceRoll dialog = new UtilDiceRoll();
@@ -30,6 +33,9 @@ public class UtilDiceRoll extends JDialog {
 	private int diceValue;
 	private JLabel lblPrompt = new JLabel();
 
+	/**
+	 * Constructs a new util dice roll instance.
+	 */
 	public UtilDiceRoll() {
 		setModal(true);
 		btnOK.setEnabled(false);
@@ -42,11 +48,21 @@ public class UtilDiceRoll extends JDialog {
 		contentPane.add(lblPrompt, BorderLayout.CENTER);
 		contentPane.add(pnlButtons, BorderLayout.SOUTH);
 		btnDice.addActionListener(new ActionListener(){
+			/**
+			 * Action performeds.
+			 *
+			 * @param arg0 arg0
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				rollDice();
 			}
 		});
 		btnOK.addActionListener(new ActionListener(){
+			/**
+			 * Action performeds.
+			 *
+			 * @param arg0 arg0
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				okClicked();
 			}
@@ -54,10 +70,16 @@ public class UtilDiceRoll extends JDialog {
 		this.pack();
 	}
 	
+	/**
+	 * Ok clickeds.
+	 */
 	public void okClicked(){
 		this.dispose();
 	}
 	
+	/**
+	 * Roll dices.
+	 */
 	public void rollDice() {
 		int[] diceRoll = GameMaster.instance().rollDice();
 		this.diceValue = diceRoll[0] + diceRoll[1];

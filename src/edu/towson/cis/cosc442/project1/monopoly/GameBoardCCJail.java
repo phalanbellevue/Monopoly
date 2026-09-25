@@ -3,6 +3,9 @@ package edu.towson.cis.cosc442.project1.monopoly;
 
 public class GameBoardCCJail extends GameBoard {
     
+    /**
+     * Constructs a new game board cc jail instance.
+     */
     public GameBoardCCJail() {
 		super();
 		PropertyCell blue1 = new PropertyCell();

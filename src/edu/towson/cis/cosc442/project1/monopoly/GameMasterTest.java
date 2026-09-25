@@ -8,6 +8,11 @@ public class GameMasterTest extends TestCase {
 
 	GameMaster gameMaster;
 	
+	/**
+	 * Set up.
+	 *
+	 * @throws Exception if an exception occurs
+	 */
 	protected void setUp() throws Exception {
 		gameMaster = GameMaster.instance();
 		gameMaster.setGameBoard(new GameBoardFull());
@@ -20,11 +25,17 @@ public class GameMasterTest extends TestCase {
         gameMaster.startGame();
 	}
 	
+	/**
+	 * Test inits.
+	 */
 	public void testInit() {
 		assertEquals(gameMaster.getInitAmountOfMoney(),
 				gameMaster.getPlayer(0).getMoney());
 	}
 	
+	/**
+	 * Test resets.
+	 */
 	public void testReset() {
 		gameMaster.movePlayer(0, 3);
 		gameMaster.movePlayer(1, 4);
@@ -36,6 +47,9 @@ public class GameMasterTest extends TestCase {
 		assertEquals(0, gameMaster.getTurn());
 	}
     
+    /**
+     * Test trade process.
+     */
     public void testTradeProcess() {
         MonopolyGUI gui = gameMaster.getGUI();
         assertTrue(gui.isTradeButtonEnabled(0));
@@ -62,6 +76,9 @@ public class GameMasterTest extends TestCase {
         assertTrue(player2.checkProperty(deal.getPropertyName()));
     }
 	
+	/**
+	 * Test turns.
+	 */
 	public void testTurn() {
 		assertEquals(0, gameMaster.getTurn());
 		gameMaster.switchTurn();
@@ -70,6 +87,9 @@ public class GameMasterTest extends TestCase {
 		assertEquals(0, gameMaster.getTurn());
 	}
 	
+	/**
+	 * Test button get out of jail clickeds.
+	 */
 	public void testButtonGetOutOfJailClicked() {
 		MonopolyGUI gui = gameMaster.getGUI();
 		gameMaster.movePlayer(0,30);
@@ -84,6 +104,9 @@ public class GameMasterTest extends TestCase {
 		assertEquals(1450,gameMaster.getPlayer(0).getMoney());
 	}
 	
+	/**
+	 * Test button purchase property clickeds.
+	 */
 	public void testButtonPurchasePropertyClicked() {
 		@SuppressWarnings("unused")
 		MonopolyGUI gui = gameMaster.getGUI();
@@ -93,6 +116,9 @@ public class GameMasterTest extends TestCase {
 		assertEquals(1440,gameMaster.getCurrentPlayer().getMoney());
 	}
 	
+	/**
+	 * Test button roll dice clickeds.
+	 */
 	public void testButtonRollDiceClicked() {
 		gameMaster.reset();
 		gameMaster.getGUI();
@@ -101,6 +127,9 @@ public class GameMasterTest extends TestCase {
 		assertEquals(gameMaster.getGameBoard().getCell(5), gameMaster.getPlayer(0).getPosition());
 	}
 	
+	/**
+	 * Test button trade clickeds.
+	 */
 	public void testButtonTradeClicked() {
 		gameMaster.getGUI();
 		gameMaster.movePlayer(0,1);

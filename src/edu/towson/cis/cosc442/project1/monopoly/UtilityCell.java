@@ -5,14 +5,30 @@ public class UtilityCell extends Cell {
 	public static final String COLOR_GROUP = "UTILITY";
 	private static int PRICE;
 
+	/**
+	 * Sets the price.
+	 *
+	 * @param price price
+	 */
 	public static void setPrice(int price) {
 		UtilityCell.PRICE = price;
 	}
 
+	/**
+	 * Returns the price.
+	 *
+	 * @return the resulting numeric value
+	 */
 	public int getPrice() {
 		return UtilityCell.PRICE;
 	}
 
+	/**
+	 * Returns the rent.
+	 *
+	 * @param diceRoll dice roll
+	 * @return the resulting numeric value
+	 */
 	public int getRent(int diceRoll) {
 		if(theOwner.numberOfUtil() == 1) {
 			return diceRoll * 4;
@@ -22,6 +38,9 @@ public class UtilityCell extends Cell {
 		return 0;
 	}
 
+	/**
+	 * Play actions.
+	 */
 	public void playAction() {
 		Player currentPlayer = null;
 		if(!isAvailable()) {

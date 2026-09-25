@@ -10,10 +10,16 @@ public class InfoFormatter {
     static {
         if (cellInfoFormatters == null) {
             cellInfoFormatters = new Hashtable<Class<?>, CellInfoFormatter>();
+            /**
+             * Constructs a new info formatter instance.
+             */
             addFormatters();
         }
     }
     
+    /**
+     * Adds the formatters.
+     */
     private static void addFormatters() {
         cellInfoFormatters.put(
                 PropertyCell.class, new PropertyCellInfoFormatter());
@@ -33,6 +39,12 @@ public class InfoFormatter {
                 CardCell.class, new CCCellInfoFormatter());
     }
 
+    /**
+     * Cell infos.
+     *
+     * @param cell cell
+     * @return the resulting string
+     */
     public static String cellInfo(Cell cell) {
         CellInfoFormatter formatter =
                 (CellInfoFormatter) cellInfoFormatters.get(cell.getClass());

@@ -5,6 +5,9 @@ import junit.framework.TestCase;
 public class RailRoadCellTest extends TestCase {
 	GameMaster gameMaster;
 	
+	/**
+	 * Sets up.
+	 */
 	protected void setUp() {
 		gameMaster = GameMaster.instance();
 		gameMaster.setGameBoard(new GameBoardRailRoad());
@@ -13,6 +16,9 @@ public class RailRoadCellTest extends TestCase {
 		gameMaster.setGUI(new MockGUI());
 	}
 	
+	/**
+	 * Test player actions.
+	 */
 	public void testPlayerAction() {
 		RailRoadCell cell =
 			(RailRoadCell) gameMaster.getGameBoard().queryCell("Railroad A");
@@ -30,6 +36,9 @@ public class RailRoadCellTest extends TestCase {
 				gameMaster.getPlayer(0).getMoney());
 	}
 	
+	/**
+	 * Test purchase railroads.
+	 */
 	public void testPurchaseRailroad() {
 		assertEquals(0, gameMaster.getPlayer(0).numberOfRR());
 		int cellIndex = gameMaster.getGameBoard().queryCellIndex("Railroad A");
@@ -39,6 +48,9 @@ public class RailRoadCellTest extends TestCase {
 		assertEquals(1, gameMaster.getPlayer(0).numberOfRR());
 	}
 
+	/**
+	 * Test rents.
+	 */
 	public void testRent() {
 		RailRoadCell rr1 =
 			(RailRoadCell) gameMaster.getGameBoard().queryCell("Railroad A");
