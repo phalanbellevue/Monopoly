@@ -20,6 +20,11 @@ public class GUITradeDialog extends JDialog implements TradeDialog {
     private TradeDeal deal;
     private JTextField txtAmount;
     
+    /**
+     * Constructs a new gui trade dialog instance with the specified parameters.
+     *
+     * @param parent parent element
+     */
     public GUITradeDialog(Frame parent) {
         super(parent);
         
@@ -47,6 +52,11 @@ public class GUITradeDialog extends JDialog implements TradeDialog {
         contentPane.add(btnCancel);
         
         btnCancel.addActionListener(new ActionListener(){
+            /**
+             * Action performeds.
+             *
+             * @param e the e parameter
+             */
             @SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
                 GUITradeDialog.this.hide();
@@ -54,6 +64,11 @@ public class GUITradeDialog extends JDialog implements TradeDialog {
         });
         
         cboSellers.addItemListener(new ItemListener(){
+            /**
+             * Item state changeds.
+             *
+             * @param e the e parameter
+             */
             public void itemStateChanged(ItemEvent e) {
                 Player player = (Player)e.getItem();
                 updatePropertiesCombo(player);
@@ -61,6 +76,11 @@ public class GUITradeDialog extends JDialog implements TradeDialog {
         });
         
         btnOK.addActionListener(new ActionListener() {
+            /**
+             * Action performeds.
+             *
+             * @param e the e parameter
+             */
             @SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
                 int amount = 0;
@@ -88,8 +108,20 @@ public class GUITradeDialog extends JDialog implements TradeDialog {
         this.pack();
     }
 
+    /**
+     * Builds the sellers combo.
+     */
     private void buildSellersCombo() {
         List<?> sellers = GameMaster.instance().getSellerList();
+        addSellersToCombo(sellers);
+    }
+
+    /**
+     * Adds the sellers to combo.
+     *
+     * @param sellers sellers
+     */
+    private void addSellersToCombo(List<?> sellers) {
         for (Iterator<?> iter = sellers.iterator(); iter.hasNext();) {
             Player player = (Player) iter.next();
             cboSellers.addItem(player);
@@ -99,10 +131,20 @@ public class GUITradeDialog extends JDialog implements TradeDialog {
         }
     }
 
+    /**
+     * Returns the trade deal.
+     *
+     * @return the resulting trade deal
+     */
     public TradeDeal getTradeDeal() {
         return deal;
     }
 
+    /**
+     * Updates the properties combo.
+     *
+     * @param player player
+     */
     private void updatePropertiesCombo(Player player) {
         cboProperties.removeAllItems();
         Cell[] cells = player.getAllProperties();
